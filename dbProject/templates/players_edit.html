@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block title %}Edit Player{% endblock %}
+{% block content %}
+    <div class="container">
+      {% if player %}
+      <h3 class="title" style="text-align: center;">  UPDATE PLAYER </h3>
+      {% else %}
+      <h3 class="title" style="text-align: center;">  ADD PLAYER </h3>
+      {% endif %}
+      <hr style="height:2px;border-width:0;color:rgb(20, 20, 20);background-color:rgb(20, 20, 20)">
+      <form action="" method="post" name="referee_edit">
+        <div class="mb-3">
+          <label for="player_id" class="form-label">Player Id:</label>
+          <div class="control">
+            <input type="text" name="player_id" class="form-control" required="required" {% if player %} placeholder={{ player.player_id }} value="{{ player.player_id }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="family_name" class="form-label">Family Name:</label>
+          <div class="control">
+            <input type="text" name="family_name" class="form-control" required="required"{% if player %} placeholder={{ player.family_name }} value="{{ player.family_name }}"  {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="given_name" class="form-label">Given Name:</label>
+          <div class="control">
+            <input type="text" name="given_name" class="form-control" required="required" {% if player %} placeholder={{ player.given_name }} value="{{ player.given_name }}"  {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="birth_date" class="form-label">Birth Date:</label>
+          <div class="control">
+            <input type="text" name="birth_date" class="form-control" required="required" {% if player %} placeholder={{ player.birth_date }} value="{{ player.birth_date }}"  {% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="goal_keeper" class="form-label">Goalkeeper:</label>
+          <div class="control">
+            <input type="text" name="goal_keeper" class="form-control" required="required" {% if player %} placeholder={{ player.goal_keeper }} value="{{ player.goal_keeper }}"  {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="defender" class="form-label">Defender:</label>
+          <div class="control">
+            <input type="text" name="defender" class="form-control" required="required" {% if player %} placeholder={{ player.defender }} value="{{ player.defender }}"  {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="midfielder" class="form-label">Midfielder:</label>
+          <div class="control">
+            <input type="text" name="midfielder" class="form-control" required="required" {% if player %} placeholder={{ player.midfielder }} value="{{ player.midfielder }}"  {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="forward" class="form-label">Forward:</label>
+          <div class="control">
+            <input type="text" name="forward" class="form-control" required="required" {% if player %} placeholder={{ player.forward }} value="{{ player.forward }}"  {% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="count_tournaments" class="form-label">Count Tournaments:</label>
+          <div class="control">
+            <input type="text" name="count_tournaments" class="form-control" required="required" {% if player %} placeholder={{ player.count_tournaments }} value="{{ player.count_tournaments }}"  {% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="list_tournaments" class="form-label">List Tournaments:</label>
+          <div class="control">
+            <input type="text" name="list_tournaments" class="form-control" required="required" {% if player %} placeholder={{ player.list_tournaments }} value="{{ player.list_tournaments }}"  {% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="player_wikipedia_link" class="form-label">Player Wikipedia Link:</label>
+          <div class="control">
+            <input type="text" name="player_wikipedia_link" class="form-control" required="required" {% if player %} placeholder={{ player.player_wikipedia_link }} value="{{ player.player_wikipedia_link  }}"  {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="control">
+            <button class="btn btn-success">Save Form</button>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

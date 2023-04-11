@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %} {{team.team_id}} Team {% endblock %}
+{% block content %}
+    <div class = "page-header">
+        <h1> {{ team.team_id }} </h1>
+    </div>
+
+    <ul>
+        <li><div class = "col-sm-2">Team ID: {{ team.team_id }} </div></li>
+        <li><div class = "col-sm-10">Team name: {{ team.team_name }}</div></li>
+        <li><div class = "col-sm-10">Federation Name: {{ team.federation_name }}</div></li>
+        <li><div class = "col-sm-10">Region Name: {{ team.region_name }}</div></li>
+        <li><div class = "col-sm-10">Confederation ID: {{ team.confederation_id }}</div></li>
+        <li><div class = "col-sm-10">Confederation name: {{ team.confederation_name }}</div></li>
+        <li><div class = "col-sm-10">Team Wikipedia Link: <a href="{{ team.team_wikipedia_link }}"> {{ team.team_wikipedia_link }}</a></div></li>
+    </ul>
+    
+{% endblock %}

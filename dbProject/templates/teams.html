@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Teams Page{% endblock %}
+{% block content %}
+    <h3 style="text-align: center;">Teams Table</h3>
+    {% if teams %}
+      <table class="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+            <th scope="col">TeamID</th>
+            <th scope="col">Team Name</th>
+            <th scope="col">Federation Name</th>
+            <th scope="col">Region Name</th>
+            <th scope="col">Confederation ID</th>
+            <th scope="col">Confederation Name</th>
+            <th scope="col">Team Wikipedia</th>
+          </tr>
+          <tbody>
+            {% for team_key, team in teams %}
+            <tr>
+              <td>
+                <form id="{{ team.key_id }}" action="/teams" method="post" name ="team" >
+                  <button class="btn btn-danger" type="submit" value={{ team.key_id }} name="deleteTeam" >X</button>
+                  </form>
+              </td>
+              <td>
+                <form id="{{ team.key_id }}" action="/update_team" method="get" name ="team" >
+                  <button class="btn btn-warning" type="submit" value={{ team.key_id }} name="updateTeam" >Update</button>
+                  </form>
+              </td>
+              <td><a href="{{ url_for('team_page', team_key=team_key) }}">{{ team.team_id }}</a></td>
+              <td>{{ team.team_name }}</td>
+              <td>{{ team.federation_name }}</td>
+              <td>{{ team.region_name }}</td>
+              <td>{{ team.confederation_id }}</td>
+              <td>{{ team.confederation_name }}</td>
+              <td><a href="{{ team.team_wikipedia_link }}">{{ team.team_wikipedia_link }}</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    {% endif %}
+
+{% endblock %}
+

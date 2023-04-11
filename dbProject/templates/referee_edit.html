@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block title %}Edit referee{% endblock %}
+{% block content %}
+    <div class="container">
+      {% if referee %}
+      <h3 class="title" style="text-align: center;">Update Referee</h3>
+      {% else %}
+      <h3 class="title" style="text-align: center;">Add Referee</h3>
+      {% endif %}
+      <hr style="height:2px;border-width:0;color:rgb(20, 20, 20);background-color:rgb(20, 20, 20)">
+      <form action="" method="post" name="referee_edit">
+        <div class="mb-3">
+          <label for="referee_id" class="form-label">Referee Id:</label>
+          <div class="control">
+            <input type="text" name="referee_id" class="form-control" required="required" {% if referee %} placeholder="{{ referee.referee_id }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="family_name" class="form-label">Family Name:</label>
+          <div class="control">
+            <input type="text" name="family_name" class="form-control" required="required" {% if referee %} placeholder="{{ referee.family_name }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="given_name" class="form-label">Given Name:</label>
+          <div class="control">
+            <input type="text" name="given_name" class="form-control" required="required" {% if referee %} placeholder="{{ referee.given_name }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="country_name" class="form-label">Country Name:</label>
+          <div class="control">
+            <input type="text" name="country_name" class="form-control" required="required" {% if referee %} placeholder="{{ referee.country_name }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confederation_id" class="form-label">Confederation Id:</label>
+          <div class="control">
+            <input type="text" name="confederation_id" class="form-control" required="required" {% if referee %} placeholder="{{ referee.confederation_id }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confederation_name" class="form-label">Confederation Name:</label>
+          <div class="control">
+            <input type="text" name="confederation_name" class="form-control" required="required" {% if referee %} placeholder="{{ referee.confederation_name }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confederation_code" class="form-label">Confederation Code:</label>
+          <div class="control">
+            <input type="text" name="confederation_code" class="form-control" required="required" {% if referee %} placeholder="{{ referee.confederation_code }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="referee_wikipedia_link" class="form-label">Referee Wikipedia Link:</label>
+          <div class="control">
+            <input type="text" name="referee_wikipedia_link" class="form-control" required="required" {% if referee %} placeholder="{{ referee.referee_wikipedia_link }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="control">
+            <button class="btn btn-success">Save Form</button>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

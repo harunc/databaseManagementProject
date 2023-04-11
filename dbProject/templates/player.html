@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %} {{player.player_id}} Player {% endblock %}
+{% block content %}
+    <div class = "page-header">
+        <h1> {{ player.family_name }} </h1>
+        <h2> {{ player.given_name }}</h2>
+    </div>
+
+    <ul>
+        <li><div class = "col-sm-2">Player ID: {{ player.key_id }} </div></li>
+        <li><div class = "col-sm-10">Player Family Name: {{ player.family_name }}</div></li>
+        <li><div class = "col-sm-10">Player Given Name: {{ player.given_name }}</div></li>
+        <li><div class = "col-sm-10">Player Birth Date: {{ player.birth_date }}</div></li>
+        <li><div class = "col-sm-10">Goalkeeper: {{ player.goal_keeper }}</div></li>
+        <li><div class = "col-sm-10">Defender: {{ player.defender }}</div></li>
+        <li><div class = "col-sm-10">Midfielder: {{ player.midfielder }}</div></li>
+        <li><div class = "col-sm-10">Forward: {{ player.forward }}</div></li>
+        <li><div class = "col-sm-10">Count Tournaments: {{ player.count_tournaments }}</div></li>
+        <li><div class = "col-sm-10">List Tournaments: {{ player.list_tournaments }}</div></li>
+        <li><div class = "col-sm-10">Wikipedia Link: <a href="{{ player.player_wikipedia_link }}">{{ player.player_wikipedia_link }}</a></div></li>
+    </ul>
+    
+{% endblock %}

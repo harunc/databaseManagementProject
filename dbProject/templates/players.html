@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %}Players{% endblock %}
+{% block content %}
+    <h3 style="text-align: center;">Players Table</h3>
+    {% if players %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+            <th scope="col">key_id</th>
+            <th scope="col">player_id</th>
+            <th scope="col">family_name</th>
+            <th scope="col">given_name</th>
+            <th scope="col">birth_date</th>
+            <th scope="col">goal_keeper</th>
+            <th scope="col">defender</th>
+            <th scope="col">midfielder</th>
+            <th scope="col">forward</th>
+            <th scope="col">count_tournaments</th>
+            <th scope="col">list_tournaments</th>
+            <th scope="col">player_wikipedia_link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for player_key, player in players %}
+            <tr>
+              <td>
+                <form id="{{ player.key_id }}" action="/players" method="post" name ="player" >
+                  <button class="btn btn-danger" type="submit" value={{ player.key_id }} name="delete" >Delete</button>
+                  </form>
+              </td>
+              <td>
+                <form id="{{ player.key_id }}" action="/update-player" method="get" name ="player" >
+                  <button class="btn btn-warning" type="submit" value={{ player.key_id }} name="player" >Update</button>
+                  </form>
+              </td>
+              <td>{{ player.key_id }}</td>
+              <td><a href="{{ url_for('player_page', player_key=player_key) }}">{{ player.player_id }}</a></td>
+              <td>{{ player.family_name }}</td>
+              <td>{{ player.given_name }}</td>
+              <td>{{ player.birth_date }}</td>
+              <td>{{ player.goal_keeper }}</td>
+              <td>{{ player.defender }}</td>
+              <td>{{ player.midfielder }}</td>
+              <td>{{ player.forward }}</td>
+              <td>{{ player.count_tournaments }}</td>
+              <td>{{ player.list_tournaments }}</td>
+              <td><a href="{{ player.player_wikipedia_link }}">{{ player.player_wikipedia_link }}</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+{% endblock %}

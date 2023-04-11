@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <h3 style="text-align: center;">Referees Table</h3>
+
+    {% if referees %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">DELETE</th>
+            <th scope="col">UPDATE</th>
+            <th scope="col">KeyID</th>
+            <th scope="col">RefereeID</th>
+            <th scope="col">FamilyName</th>
+            <th scope="col">GivenName</th>
+            <th scope="col">CountryName</th>
+            <th scope="col">ConfederationID</th>
+            <th scope="col">ConfederationName</th>
+            <th scope="col">ConfederationCode</th>
+            <th scope="col">RefereeWikiLink</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for referee_key, referee in referees %}
+            <tr>
+              <td>
+                <form id="{{ referee.key_id }}" action="/referees" method="post" name ="referee" >
+                  <button class="btn btn-danger"  type="submit" value={{ referee.key_id }} name="rfdelete" >Delete</button>
+                </form>
+              </td>
+              <td>
+                <form id="{{ referee.key_id }}" action="/update-referee" method="get" name ="referee" >
+                  <button class="btn btn-warning"  type="submit" value={{ referee.key_id }} name="rfupdate" >Update</button>
+                </form>
+              </td>
+              <td>{{ referee.key_id }}</td>
+              <td><a href="{{ url_for('referee_page', referee_key=referee_key) }}">{{ referee.referee_id }}</a></td>
+              <td>{{ referee.family_name }}</td>
+              <td>{{ referee.given_name }}</td>
+              <td>{{ referee.country_name }}</td>
+              <td>{{ referee.confederation_id }}</td>
+              <td>{{ referee.confederation_name }}</td>
+              <td>{{ referee.confederation_code }}</td>
+              <td>{{ referee.referee_wikipedia_link }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+{% endblock %}

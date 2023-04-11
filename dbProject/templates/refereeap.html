@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block title %}Referee Appearance{% endblock %}
+{% block content %}
+    <h3 class="title">Referee Appearance</h3>
+
+    <table class="table">
+        <tr>
+            <th>Tournament Id:</th>
+            <td>{{ refereeap.tournament_id }}</td>
+        </tr>
+        <tr>
+            <th>Tournament Name:</th>
+            <td>{{ refereeap.tournament_name }}</td>
+        </tr>
+        <tr>
+            <th>Match Id:</th>
+            <td>{{ refereeap.match_id }}</td>
+        </tr>
+        <tr>
+            <th>Match Name:</th>
+            <td>{{ refereeap.match_name }}</td>
+        </tr>
+        <tr>
+            <th>Match Date:</th>
+            <td>{{ refereeap.match_date }}</td>
+        </tr>
+        <tr>
+            <th>Stage Name:</th>
+            <td>{{ refereeap.stage_name }}</td>
+        </tr>
+        <tr>
+            <th>Group Name:</th>
+            <td>{{ refereeap.group_name }}</td>
+        </tr>
+        <tr>
+            <th>Referee Id:</th>
+            <td>{{ refereeap.referee_id }}</td>
+        </tr>
+        <tr>
+            <th>Family Name:</th>
+            <td>{{ refereeap.family_name }}</td>
+        </tr>
+        <tr>
+            <th>Given Name:</th>
+            <td>{{ refereeap.given_name }}</td>
+        </tr>
+        <tr>
+            <th>Country Name:</th>
+            <td>{{ refereeap.country_name }}</td>
+        </tr>
+        <tr>
+            <th>Confederation Id:</th>
+            <td>{{ refereeap.confederation_id }}</td>
+        </tr>
+        <tr>
+            <th>Confederation Name:</th>
+            <td>{{ refereeap.confederation_name }}</td>
+        </tr>
+        <tr>
+            <th>Confederation Code:</th>
+            <td>{{ refereeap.confederation_code }}</td>
+        </tr>
+    </table>
+{% endblock %}

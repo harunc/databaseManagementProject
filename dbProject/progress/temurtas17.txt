@@ -1,0 +1,16 @@
+
+13.12.2022
+-I create server, views, settings files and templates folder for html templates.
+
+15.12.2022
+-Referees Database Created, Add and Delete operation added to webpage, Forms were added to referee_edit page
+
+16.12.2022
+-Referees appearances database added,new view methods created,html file for referees appearances are created
+-Bootstrap framework added for nicer look
+
+17.12.2022
+-Add, select and delete operations added for referees appearances, Necessary html files created
+
+18.12.2022
+-Update operation added to referee table

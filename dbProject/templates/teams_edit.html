@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block title %}Edit Team{% endblock %}
+{% block content %}
+    <div class="container">
+      {% if teams %}
+      <h3 class="title" style="text-align: center;">  UPDATE TEAMS </h3>
+      {% else %}
+      <h3 class="title" style="text-align: center;">ADD TEAM</h3>
+      {% endif %}
+      <hr style="height:2px;border-width:0;color:rgb(20, 20, 20);background-color:rgb(20, 20, 20)">
+      <form action="" method="post" name="team_edit">
+        <div class="mb-3">
+          <label for="team_id" class="form-label">Team ID:</label>
+          <div class="control">
+            <input type="text" name="team_id" class="form-control" required="required" {% if team %} value="{{ team.team_id }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="team_name" class="form-label">Team name:</label>
+          <div class="control">
+            <input type="text" name="team_name" class="form-control" required="required" {% if team %} value="{{ team.team_name }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="federation_name" class="form-label">Federation Name:</label>
+          <div class="control">
+            <input type="text" name="federation_name" class="form-control" required="required" {% if team %} value="{{ team.federation_name }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="region_name" class="form-label">Region Name:</label>
+          <div class="control">
+            <input type="text" name="region_name" class="form-control" required="required" {% if team %} value="{{ team.region_name }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confederation_id" class="form-label">Confederation ID:</label>
+          <div class="control">
+            <input type="text" name="confederation_id" class="form-control" required="required" {% if team %} value="{{ team.confederation_id }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confederation_name" class="form-label">Confederation name:</label>
+          <div class="control">
+            <input type="text" name="confederation_name" class="form-control" required="required" {% if team %} value="{{ team.confederation_name }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="team_wikipedia_link class="form-label">Team Wikipedia Link:</label>
+          <div class="control">
+            <input type="text" name="team_wikipedia_link" class="form-control" required="required" {% if team %} value="{{ team.team_wikipedia_link }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="control">
+            <button class="btn btn-success">Save Form</button>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

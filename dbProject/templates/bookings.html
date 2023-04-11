@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}Bookings Page{% endblock %}
+{% block content %}
+    <h3 style="text-align: center;">Bookings Table</h3>
+    {% if bookings %}
+      <table class="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+            <th scope="col">BookingID</th>
+            <th scope="col">TournamentID</th>
+            <th scope="col">TournamentName</th>
+            <th scope="col">MatchID</th>
+            <th scope="col">MatchName</th>
+            <th scope="col">MatchDate</th>
+            <th scope="col">StageName</th>
+            <th scope="col">TeamID</th>
+          </tr>
+          <tbody>
+            {% for bookings_key, booking in bookings %}
+            <tr>
+              <td>
+                <form id="{{ booking.key_id }}" action="/bookings" method="post" name ="booking" >
+                  <button class="btn btn-danger" type="submit" value={{ booking.key_id }} name="deleteBooking">X</button>
+                  </form>
+              </li>
+              <td>
+                <form id="{{ booking.key_id }}" action="/update_booking" method="get" name ="booking" >
+                  <button class="btn btn-warning" type="submit" value={{ booking.key_id }} name="updateBooking" >Update</button>
+                  </form>
+              </li>
+              <td>{{ booking.booking_id }}</td>
+              <td>{{ booking.tournament_id }}</td>
+              <td>{{ booking.tournament_name }}</td>
+              <td>{{ booking.match_id }}</td>
+              <td>{{ booking.match_name }}</td>
+              <td>{{ booking.match_date }}</td>
+              <td>{{ booking.stage_name }}</td>
+              <td><a href="{{ url_for('team_page_foreign', team_id =booking.team_id) }}">{{ booking.team_id }}</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    {% endif %}
+
+{% endblock %}

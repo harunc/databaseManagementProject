@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block title %}Edit Award Winner{% endblock %}
+{% block content %}
+    <div class="container">
+      {% if awardwinner %}
+      <h3 class="title" style="text-align: center;">  UPDATE AWARD WINNER </h3>
+      {% else %}
+      <h3 class="title" style="text-align: center;">  ADD AWARD WINNER </h3>
+      {% endif %}
+      <hr style="height:2px;border-width:0;color:rgb(20, 20, 20);background-color:rgb(20, 20, 20)">
+      <form action="" method="post" name="referee_edit">
+
+        <div class="mb-3">
+          <label for="deneme" class="form-label">Tournament Id: </label>
+          <div class="control">
+            <input type="text" name="deneme" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.tournament_id }}" value="{{ awardwinner.tournament_id }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="tournament_name" class="form-label">Tournament Name:</label>
+          <div class="control">
+            <input type="text" name="tournament_name" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.tournament_name }}" value="{{ awardwinner.tournament_name }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="award_id" class="form-label">Award Id:</label>
+          <div class="control">
+            <input type="text" name="award_id" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.award_id }}" value="{{ awardwinner.award_id }}"  {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="award_name" class="form-label">Award Name:</label>
+          <div class="control">
+            <input type="text" name="award_name" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.award_name }}"value="{{ awardwinner.award_name }}" {% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="shared" class="form-label">Shared:</label>
+          <div class="control">
+            <input type="text" name="shared" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.shared }}" value="{{ awardwinner.shared }}" {% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="player_id" class="form-label">Player Id:</label>
+          <div class="control">
+            <input type="text" name="player_id" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.player_id }}" value="{{ awardwinner.player_id }}"{% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="family_name" class="form-label">Family Name:</label>
+          <div class="control">
+            <input type="text" name="family_name" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.family_name }}" value="{{ awardwinner.family_name }}"{% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="given_name" class="form-label">Given Name:</label>
+          <div class="control">
+            <input type="text" name="given_name" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.given_name }}" value="{{ awardwinner.given_name }}"{% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="team_id" class="form-label">Team Id:</label>
+          <div class="control">
+            <input type="text" name="team_id" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.team_id }}" value="{{ awardwinner.team_id }}"{% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="team_name" class="form-label">Team Name:</label>
+          <div class="control">
+            <input type="text" name="team_name" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.team_name }}" value="{{ awardwinner.team_name }}"{% endif %}/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="team_code" class="form-label">Team Code:</label>
+          <div class="control">
+            <input type="text" name="team_code" class="form-control" required="required" {% if awardwinner %} placeholder="{{ awardwinner.team_code }}" value="{{ awardwinner.team_code }}"{% endif %}/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="control">
+            <button class="btn btn-success">Save Form</button>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

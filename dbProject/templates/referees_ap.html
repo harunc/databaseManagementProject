@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block title %}Appearance{% endblock %}
+{% block content %}
+    <h3 style="text-align: center;">Referees Appearances Table</h3>
+
+    {% if refereesap %}
+    <form action="" method="post" name="refereeap_list">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">TournamentID</th>
+            <th scope="col">TournamentName</th>
+            <th scope="col">MatchID</th>
+            <th scope="col">MatchName</th>
+            <th scope="col">MatchDate</th>
+            <th scope="col">StageName</th>
+            <th scope="col">GroupName</th>
+            <th scope="col">RefereeID</th>
+            <th scope="col">FamilyName</th>
+            <th scope="col">GivenName</th>
+            <th scope="col">CountryName</th>
+            <th scope="col">ConfederationID</th>
+            <th scope="col">ConfederationName</th>
+            <th scope="col">ConfederationCode</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for refereeap_key, refereeap in refereesap %}
+            <tr>
+              <td>
+                <label class="checkbox">
+                  <input type="checkbox" name="refereeap_keys" value="{{ refereeap_key }}"/>
+                </label>
+              </td>
+              <td><a href="{{ url_for('refereeap_page', refereeap_key=refereeap_key) }}">{{ refereeap.tournament_id }}</a></td>
+              <td>{{ refereeap.tournament_name }}</td>
+              <td>{{ refereeap.match_id }}</td>
+              <td>{{ refereeap.match_name }}</td>
+              <td>{{ refereeap.match_date }}</td>
+              <td>{{ refereeap.stage_name }}</td>
+              <td>{{ refereeap.group_name }}</td>
+              <td><a href="{{ url_for('referee_page_foreign', referee_id =refereeap.referee_id) }}">{{ refereeap.referee_id }}</a></td>
+              <td>{{ refereeap.family_name }}</td>
+              <td>{{ refereeap.given_name }}</td>
+              <td>{{ refereeap.country_name }}</td>
+              <td>{{ refereeap.confederation_id }}</td>
+              <td>{{ refereeap.confederation_name }}</td>
+              <td>{{ refereeap.confederation_code }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </form>
+    {% endif %}
+
+{% endblock %}

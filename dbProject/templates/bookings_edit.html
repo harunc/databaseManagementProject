@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block title %}Edit Booking{% endblock %}
+{% block content %}
+    <div class="container">
+      {% if booking %}
+      <h3 class="title" style="text-align: center;">  UPDATE BOOKINGS </h3>
+      {% else %}
+      <h3 class="title" style="text-align: center;">  ADD BOOKING </h3>
+      {% endif %}
+      <hr style="height:2px;border-width:0;color:rgb(20, 20, 20);background-color:rgb(20, 20, 20)">
+      <form action="" method="post" name="booking_edit">
+        <div class="mb-3">
+          <label for="booking_id" class="form-label">Booking ID: </label>
+          <div class="control">
+            <input type="text" name="booking_id" class="form-control" required="required" {% if booking %} value="{{ booking.booking_id }}{% endif %}"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="tournament_id" class="form-label">Tournament ID:</label>
+            <div class="control">
+              <input type="text" name="tournament_id" class="form-control" required="required" {% if booking %} value="{{ booking.tournament_id }}{% endif %}"/>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="tournament_name" class="form-label">Tournament Name:</label>
+            <div class="control">
+              <input type="text" name="tournament_name" class="form-control" required="required" {% if booking %} value="{{ booking.tournament_name }}{% endif %}"/>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="match_id" class="form-label">Match Id:</label>
+            <div class="control">
+              <input type="text" name="match_id" class="form-control" required="required" {% if booking %} value="{{ booking.match_id }}{% endif %}"/>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="match_name" class="form-label">Match Name:</label>
+            <div class="control">
+              <input type="text" name="match_name" class="form-control" required="required" {% if booking %} value="{{ booking.match_name }}{% endif %}"/>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="match_date" class="form-label">Match Date:</label>
+            <div class="control">
+              <input type="text" name="match_date" class="form-control" required="required" {% if booking %} value="{{ booking.match_date }}{% endif %}"/>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="stage_name" class="form-label">Stage Name:</label>
+            <div class="control">
+              <input type="text" name="stage_name" class="form-control" required="required" {% if booking %} value="{{ booking.stage_name }}{% endif %}"/>
+            </div>
+          </div>
+
+        <div class="mb-3">
+          <label for="team_id" class="form-label">Team Id:</label>
+          <div class="control">
+            <input type="text" name="team_id" class="form-control" required="required" {% if booking %} value="{{ booking.team_id }}{% endif %}"/>
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <div class="control">
+            <button class="btn btn-success">Save Form</button>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

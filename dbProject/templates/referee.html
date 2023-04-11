@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}Referee{% endblock %}
+{% block content %}
+    <h3 class="title">Referee</h3>
+
+    <table class="table">
+        <tr>
+            <th>Referee Id:</th>
+            <td>{{ referee.referee_id }}</td>
+        </tr>
+        <tr>
+            <th>Family Name:</th>
+            <td>{{ referee.family_name }}</td>
+        </tr>
+        <tr>
+            <th>Given Name:</th>
+            <td>{{ referee.given_name }}</td>
+        </tr>
+        <tr>
+            <th>Country Name:</th>
+            <td>{{ referee.country_name }}</td>
+        </tr>
+        <tr>
+            <th>Confederation Id:</th>
+            <td>{{ referee.confederation_id }}</td>
+        </tr>
+        <tr>
+            <th>Confederation Name:</th>
+            <td>{{ referee.confederation_name }}</td>
+        </tr>
+        <tr>
+            <th>Confederation Code:</th>
+            <td>{{ referee.confederation_code }}</td>
+        </tr>
+        <tr>
+            <th>Referee Wiki Link:</th>
+            <td>{{ referee.referee_wikipedia_link }}</td>
+        </tr>
+    </table>
+{% endblock %}

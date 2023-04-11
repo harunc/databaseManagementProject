@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block title %}Award Winners{% endblock %}
+{% block content %}
+    <h3 style="text-align: center;">Award Winners Table</h3>
+    {% if awardwinners %}
+      <table class="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+            <th scope="col">key_id</th>
+            <th scope="col">tournament_id</th>
+            <th scope="col">tournament_name</th>
+            <th scope="col">award_id</th>
+            <th scope="col">award_name</th>
+            <th scope="col">shared</th>
+            <th scope="col">player_id</th>
+            <th scope="col">family_name</th>
+            <th scope="col">given_name</th>
+            <th scope="col">team_id</th>
+            <th scope="col">team_name</th>
+            <th scope="col">team_code</th>
+          </tr>
+          <tbody>
+            {% for awardwinners_key, awardwinner in awardwinners %}
+            <tr>
+              <td>
+                <form id="{{ awardwinner.key_id }}" action="/awardwinners" method="post" name ="awardwinner" >
+                  <button class="btn btn-danger" type="submit" value={{ awardwinner.key_id }} name="delete" >Delete</button>
+                  </form>
+              </td>
+              <td>
+                <form id="{{ awardwinner.key_id }}" action="/update-awardwinner" method="get" name ="awardwinner" >
+                  <button class="btn btn-warning" type="submit" value={{ awardwinner.key_id }} name="awardwinner" >Update</button>
+                  </form>
+              </td>
+              <td>{{ awardwinner.key_id }}</td>
+              <td>{{ awardwinner.tournament_id }}</td>
+              <td>{{ awardwinner.tournament_name }}</td>
+              <td>{{ awardwinner.award_id }}</td>
+              <td>{{ awardwinner.award_name }}</td>
+              <td>{{ awardwinner.shared }}</td>
+              <td><a href="{{ url_for('player_page', player_key=awardwinner.key_id) }}">{{ awardwinner.player_id }}</a></td>
+              <td>{{ awardwinner.family_name }}</td>
+              <td>{{ awardwinner.given_name }}</td>
+              <td>{{ awardwinner.team_id }}</td>
+              <td>{{ awardwinner.team_name }}</td>
+              <td>{{ awardwinner.team_code }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    {% endif %}
+
+{% endblock %}
